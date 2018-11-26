@@ -1,0 +1,22 @@
+#number of people on bike paths in Montreal each day 
+
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#uses the read csv function from pandas to read the csv.,sep sets the column seperator, sets encoding to 'latin1', parses-dates, tells the script the day is first and indexes the Date
+
+fixed_df = pd.read_csv('bikes.csv', sep=';', encoding='latin1', parse_dates=['Date'], dayfirst=True, index_col='Date')
+
+#looks at first 3 rows
+fixed_df[:3]
+
+#[] selects column Côte-Sainte-Catherine
+fixed_df['Côte-Sainte-Catherine']
+
+#plots values for Côte-Sainte-Catherine
+fixed_df['Côte-Sainte-Catherine'].plot()
+
+#plots all data in dataframe the first number changes the width, the second the height of the graph
+fixed_df.plot(figsize=(15, 8))
